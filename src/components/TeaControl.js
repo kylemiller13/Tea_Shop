@@ -8,7 +8,8 @@ class TeaControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainTeaList: []
+      mainTeaList: [],
+      selectedTea: null
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -23,6 +24,11 @@ class TeaControl extends React.Component {
     const newMainTeaList = this.state.mainTeaList.concat(newTea);
     this.setState({mainTeaList: newMainTeaList,
                   formVisibleOnPage: false });
+  }
+
+  handleChangingSelectedTea = (id) => {
+    const selectedTea = this.state.mainTeaList.filter(tea => tea.id === id)[0];
+    this.setState({selectedTea: selectedTea});
   }
 
   render(){
