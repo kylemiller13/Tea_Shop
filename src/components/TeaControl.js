@@ -7,7 +7,8 @@ class TeaControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false
+      formVisibleOnPage: false,
+      mainTeaList: []
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -21,11 +22,12 @@ class TeaControl extends React.Component {
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
+
     if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewTeaForm />;
       buttonText = "Return to Tea List"; 
     } else {
-      currentlyVisibleState = <TeaList />
+      currentlyVisibleState = <TeaList teaList={this.state.mainTeaList} />;
       buttonText = "Add Tea";
     }
     return (
