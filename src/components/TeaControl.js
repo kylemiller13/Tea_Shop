@@ -10,9 +10,11 @@ class TeaControl extends React.Component {
       formVisibleOnPage: false
     };
   }
-  
+
   handleClick = () => {
-    this.setState({formVisibleOnPage: true});
+    this.setState(prevState => ({
+      formVisibleOnPage: !prevState.formVisibleOnPage
+    }));
   }
 
   render(){
