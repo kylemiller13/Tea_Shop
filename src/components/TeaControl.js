@@ -19,6 +19,12 @@ class TeaControl extends React.Component {
     }));
   }
 
+  handleAddingNewTeaToList = (newTea) => {
+    const newMainTeaList = this.state.mainTeaList.concat(newTea);
+    this.setState({mainTeaList: newMainTeaList,
+                  formVisibleOnPage: false });
+  }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
