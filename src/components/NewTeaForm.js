@@ -25,4 +25,4 @@ NewTeaForm.propTypes = {
   onNewTeaCreation: PropTypes.func
 };
 
-export default NewTicketForm;
+export default NewTeaForm;
