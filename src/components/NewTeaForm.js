@@ -1,6 +1,8 @@
 import React from "react";
 import { v4 } from 'uuid';
 import PropTypes from "prop-types";
+import ReusableForm from "./ReusableForm";
+
 
 function NewTeaForm(props){
   function handleNewTeaFormSubmission(event) {
@@ -13,11 +15,15 @@ function NewTeaForm(props){
       quantity: parseInt(130),
       id: v4()
     });
+    console.log(props.name);
   }
   
     return (
       <React.Fragment>
-        <h3>This is a form.</h3>
+        <ReusableForm 
+          formSubmissionHandler={handleNewTeaFormSubmission}
+          buttonText="Submit"
+        />
       </React.Fragment>
     );
 }
