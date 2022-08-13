@@ -1,6 +1,7 @@
 import React from 'react';
 import NewTeaForm from './NewTeaForm';
 import TeaList from './TeaList';
+import TeaDetail from './TeaDetail';
 
 class TeaControl extends React.Component {
 
@@ -15,9 +16,16 @@ class TeaControl extends React.Component {
   }
 
   handleClick = () => {
-    this.setState(prevState => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage
-    }));
+    if (this.state.selectedTicket != null) {
+      this.setState({
+        formVisibleOnPage: false,
+        selectedTicket: null
+      });
+    } else {
+      this.setState(prevState => ({
+        formVisibleOnPage: !prevState.formVisibleOnPage,
+      }));
+    }
   }
 
   handleAddingNewTeaToList = (newTea) => {
@@ -35,11 +43,14 @@ class TeaControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewTeaForm onNewTeaCreation={this.handleAddingNewTeaToList} />;
+    if (this.state.selectedTicket != null) {
+      currentlyVisibleState = <TeaDetail tea = {this.state.selectedTea} />;
       buttonText = "Return to Tea List"; 
-    } else {
-      currentlyVisibleState = <TeaList teaList={this.state.mainTeaList} />;
+    } else if  (this.state.formVisibleOnPage) { 
+      currentlyVisibleState = <NewTeaForm onNewTeaCreation={this.handleAddingNewTeaToList}  />;
+      buttonText = "Return to Tea List";
+    }else {
+      currentlyVisibleState = <TeaList teaList={this.state.mainTeaList} onTeaSelection={this.handleChangingSelectedTea} />;
       buttonText = "Add Tea";
     }
     return (
