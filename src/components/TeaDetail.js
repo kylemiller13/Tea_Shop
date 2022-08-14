@@ -2,21 +2,24 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function TeaDetail(props){
-  const { tea } = props;
+  const { tea, onClickingPurchase } = props;
 
   return (
     <React.Fragment>
-      <h1>Tea Details:</h1>
-      <h2>{tea.name}</h2>
+      <h2>Tea Details:</h2>
+      <h3>{tea.name}</h3>
       <p>Origin: {tea.origin}</p>
       <p>Type: {tea.type}</p>
-      <p>${tea.price} per oz</p>
+      <p>${tea.price}.00 per oz</p>
+      <p>Quantity: {tea.quantity} </p>
+      <button onClick={() => onClickingPurchase(tea.id)}>Purchase</button>
     </React.Fragment>
   );
 }
 
 TeaDetail.propTypes = {
-  ticket: PropTypes.object
+  tea: PropTypes.object,
+  onClickingPurchase: PropTypes.func
 };
 
 export default TeaDetail;
