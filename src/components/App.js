@@ -13,9 +13,7 @@ function App() {
                     backgroundRepeat:"no-repeat", 
                     width: "1000px",
                     height: "1000px"
-                   
                      }}>
-        
         <Header />
         <TeaControl />
         </div>
