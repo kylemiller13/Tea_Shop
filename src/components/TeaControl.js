@@ -4,7 +4,6 @@ import TeaList from './TeaList';
 import TeaDetail from './TeaDetail';
 
 class TeaControl extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -38,12 +37,33 @@ class TeaControl extends React.Component {
     this.setState({selectedTea: selectedTea});
   };
 
+  handlePurchasingTea = (id) => {
+    const selectedTea = this.state.mainTeaList.filter(
+      (tea) => tea.id === id
+    )[0];
+    selectedTea.quantity -= 1;
+
+    const editedMainTeaList = this.state.mainTeaList
+      .filter((tea) => tea.id !== id)
+      .concat(selectedTea);
+
+    this.setState({
+      mainTeaList: editedMainTeaList,
+      editing: false,
+    });
+  };
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
 
     if (this.state.selectedTea != null) {
-      currentlyVisibleState = <TeaDetail tea={this.state.selectedTea} />;
+      currentlyVisibleState = (
+      <TeaDetail 
+      tea={this.state.selectedTea}  
+      onClickingPurchase={this.handlePurchasingTea}
+      />
+      );
       buttonText="Return to Tea List"; 
     } else if  (this.state.formVisibleOnPage) { 
       currentlyVisibleState = (<NewTeaForm onNewTeaCreation={this.handleAddingNewTeaToList}  />
