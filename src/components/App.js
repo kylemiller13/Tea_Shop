@@ -4,21 +4,20 @@ import TeaControl from "./TeaControl";
 import background from "./../img/tea.jpg";
 
 
+
 function App() {
   return (
     <React.Fragment>    
-       <div style={{ backgroundImage:`url(${background})`,
+      <div id="mydiv" style={{ backgroundImage:`url(${background}`,
                     backgroundPosition: "center",
                     backgroundSize:"cover",
                     backgroundRepeat:"no-repeat", 
-                    width: "1000px",
-                    height: "1000px"
-                     }}>
+                    width: "750px",
+                    height: "750px"
+                    }}>
         <Header />
         <TeaControl />
-        </div>
-      
-
+      </div>
     </React.Fragment>
   );
 }
