@@ -13,11 +13,11 @@ function TeaList(props){
             whenTeaClicked={props.onTeaSelection} 
             name={tea.name}
             origin={tea.origin}
-            type={tea.type}
             price={tea.price}
             quantity={tea.quantity}
             id={tea.id}
-            key={tea.id}/>
+            key={tea.id}
+            />
       ))}
     </React.Fragment>
   );
