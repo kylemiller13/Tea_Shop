@@ -9,13 +9,11 @@ function NewTeaForm(props){
     event.preventDefault();
     props.onNewTeaCreation({
       name: event.target.name.value,
-      origin: event.target.origin.value,
-      type: event.target.type.value,
-      price: parseInt(event.target.price.value),
-      quantity: parseInt(130),
+      origin: "China",
+      price: 1,
+      quantity: 130,
       id: v4()
     });
-    console.log(props.name);
   }
   
     return (
