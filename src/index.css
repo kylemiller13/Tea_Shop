@@ -1,7 +1,18 @@
 body {
   font-family: cursive;
-  background-color: white;
   display:flex;
   justify-content:center;
   align-items:center;
+}
+
+#mydiv{
+  border: solid black;
+  border-color: black;
+  border-width: 3px 4px 3px 5px;
+  border-radius:95% 4% 92% 5%/4% 95% 6% 95%;
+  transform: rotate(1deg);
+}
+
+#title{
+  text-align: center;
 }
