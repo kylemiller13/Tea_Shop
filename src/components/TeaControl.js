@@ -45,10 +45,6 @@ class TeaControl extends React.Component {
     }else{
       selectedTea.quantity -= 1;
     }
-    
-    
-    
-
     const editedMainTeaList = this.state.mainTeaList
       .filter((tea) => tea.id !== id)
       .concat(selectedTea);
@@ -83,7 +79,9 @@ class TeaControl extends React.Component {
     return (
       <React.Fragment>
         {currentlyVisibleState}
+        <div className="centerBTN">
         <button onClick={this.handleClick}>{buttonText}</button>
+        </div>
       </React.Fragment>
     );
   };
