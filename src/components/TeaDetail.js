@@ -6,13 +6,14 @@ function TeaDetail(props){
 
   return (
     <React.Fragment>
-      <h2>Tea Details:</h2>
-      <h3>{tea.name}</h3>
-      <p>Origin: {tea.origin}</p>
-      <p>Type: {tea.type}</p>
-      <p>${tea.price}.00 per oz</p>
-      <p>Quantity: {tea.quantity} </p>
-      <button onClick={() => onClickingPurchase(tea.id)}>Purchase</button>
+      <div className="centerDetails">
+        <h2>Tea Details:</h2>
+        <h3>{tea.name}</h3>
+        <p>Origin: {tea.origin}</p>
+        <p>${tea.price}.00 per oz</p>
+        <p>Quantity: {tea.quantity} </p>
+        <button onClick={() => onClickingPurchase(tea.id)}>Purchase</button>
+      </div>
     </React.Fragment>
   );
 }
