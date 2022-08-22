@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function TeaDetail(props){
-  const { tea, onClickingPurchase } = props;
+  const { tea, onClickingPurchase, onClickingDelete } = props;
 
   return (
     <React.Fragment>
@@ -13,6 +13,7 @@ function TeaDetail(props){
         <p>${tea.price}.00 per oz</p>
         <p>Quantity: {tea.quantity} </p>
         <button onClick={() => onClickingPurchase(tea.id)}>Purchase</button>
+        <button onClick={()=> onClickingDelete(tea.id) }>Delete Tea</button>
       </div>
     </React.Fragment>
   );
